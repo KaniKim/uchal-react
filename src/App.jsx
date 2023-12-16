@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Nav from './components/layouts/Navigation'
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import WalletModal from './components/composition/Wallet';
+import { WalletController, WalletStatus } from '@xpla/wallet-provider';
 
 function App() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -14,11 +15,12 @@ function App() {
     setModalOpen(false);
   }, []);
 
+
   return (
     <div>
       <BrowserRouter>
           <Nav openModal={openModal}></Nav>
-          <WalletModal isModalOpen={isModalOpen} toggleModal={closeModal}/>
+            <WalletModal isModalOpen={isModalOpen} toggleModal={closeModal}/>
         <Routes>
           <Route path='/'></Route>
         </Routes>

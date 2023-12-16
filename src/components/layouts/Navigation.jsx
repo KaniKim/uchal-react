@@ -31,9 +31,9 @@ function Nav({openModal}) {
                             GAME FORMS
                         </Link>
                     <button
-                    type="button"
-                    className="md:hidden bg-gray-100 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
-                    onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                        type="button"
+                        className="md:hidden bg-blue-100 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-blue-700 focus:text-white transition duration-150 ease-in-out"
+                        onClick={() => setShowMobileMenu(!showMobileMenu)}>
                     <svg
                         className="h-6 w-6"
                         stroke="currentColor"

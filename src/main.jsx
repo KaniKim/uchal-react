@@ -2,9 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+import { WalletProvider, WalletStatus, getChainOptions, useWallet } from '@xpla/wallet-provider'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-      <App />
-  </React.StrictMode>,
-)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+getChainOptions().then((chainOptions) => {
+  
+  root.render(
+    <React.StrictMode>
+        <WalletProvider value={WalletStatus.WALLET_NOT_CONNECTED} {...chainOptions}>
+          <App />
+        </WalletProvider>
+    </React.StrictMode>
+    );
+  });
