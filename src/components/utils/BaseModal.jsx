@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 
 BaseModal.propTypes = {
     children: PropTypes.object.isRequired,
+    isModalOpen: PropTypes.bool.isRequired,
+    toggleModal: PropTypes.func.isRequired
 };
 
 export default function BaseModal ({isModalOpen, toggleModal, children}) {
@@ -13,7 +15,8 @@ export default function BaseModal ({isModalOpen, toggleModal, children}) {
             className="p-6 bg-white self-start mt-32 max-w-lg w-5/6">
                 {children}
                 <br />
-                <ButtonCheck acting={toggleModal}>Close</ButtonCheck>
+                <br />
+                <ButtonCheck width="w-full" acting={toggleModal}>Close</ButtonCheck>
             </div>
         </div>
     ) : null;

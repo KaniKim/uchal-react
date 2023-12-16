@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
 import ButtonCheck from "../utils/ButtonCheck";
+import PropTypes from 'prop-types';
+
+Nav.propTypes = {
+    openModal: PropTypes.func.isRequired,
+};
 
 function Nav({openModal}) {
     return ( 
