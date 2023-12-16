@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import ButtonCheck from "../utils/ButtonCheck";
 
-function Nav({showModal}) {
+function Nav({openModal}) {
     return ( 
         <div>
             <div className="w-full
@@ -28,7 +28,7 @@ function Nav({showModal}) {
                     <li className="text-gray-100 hover:text-indigo-400 font-bold">Home</li>
                     <li className="text-gray-100 hover:text-indigo-400 font-bold">Swap</li>
                     <li className="text-gray-100 hover:text-indigo-400 font-bold">Demo</li>
-                    <ButtonCheck onClick="showModal">Connect Wallet</ButtonCheck>
+                    <ButtonCheck acting={openModal}>Connect Wallet</ButtonCheck>
                     <ButtonCheck>My Page</ButtonCheck>
                 </ul>
             </div>        
