@@ -1,20 +1,25 @@
 import { Link } from "react-router-dom";
-import ButtonCheck from "../utils/ButtonCheck";
 import PropTypes from 'prop-types';
+import Menu from "./Menu";
+import { useState } from "react";
 
 Nav.propTypes = {
     openModal: PropTypes.func.isRequired,
 };
 
 function Nav({openModal}) {
+    const [showMobileMenu, setShowMobileMenu] = useState(false);
     return ( 
         <div>
+            
             <div className="w-full
+                            
                          bg-blue-300
                             px-6
-                            h-14
+                            h-2/6
                             py-8
                             md:flex md:justify-between md:items-center">
+                                
                 <div className="flex items-center justify-between">
                     <Link 
                         className="text-xl
@@ -25,18 +30,33 @@ function Nav({openModal}) {
                         to={"/"}>
                             GAME FORMS
                         </Link>
+                    <button
+                    type="button"
+                    className="md:hidden bg-gray-100 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
+                    onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                    <svg
+                        className="h-6 w-6"
+                        stroke="currentColor"
+                        fill="none"
+                        viewBox="0 0 24 24">
+                        <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M4 6h16M4 12h16M4 18h16"
+                        ></path>
+                    </svg>
+                </button>
                 </div>
-                <ul className="flex-col
-                    mt-8
-                    space-y-4
-                    md:flex md:space-y-0 md:flex-row md:items-center md:space-x-5 md:mt-0">
-                    <li className="text-gray-100 hover:text-indigo-400 font-bold">Home</li>
-                    <li className="text-gray-100 hover:text-indigo-400 font-bold">Swap</li>
-                    <li className="text-gray-100 hover:text-indigo-400 font-bold">Demo</li>
-                    <ButtonCheck acting={openModal}>Connect Wallet</ButtonCheck>
-                    <ButtonCheck>My Page</ButtonCheck>
-                </ul>
-            </div>        
+                <div className="hidden md:block">
+                    <Menu openModal={openModal}/>
+                </div>
+                
+                <div className="md:hidden">
+                    {showMobileMenu && <Menu openModal={openModal}/>}
+                </div>
+            </div>    
+                
         </div>
     )
 }
