@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Nav from './components/layouts/Navigation'
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import WalletModal from './components/composition/Wallet';
-import { WalletController, WalletStatus } from '@xpla/wallet-provider';
+import { WalletProvider } from '@xpla/wallet-provider';
 
 function App() {
   const [isModalOpen, setModalOpen] = useState(false);
-
+  
   const openModal = useCallback(() => {
     setModalOpen(true);
   }, []);
@@ -19,9 +19,11 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+          <WalletProvider walletConnectChainIds={0}>
           <Nav openModal={openModal}></Nav>
-            <WalletModal isModalOpen={isModalOpen} toggleModal={closeModal}/>
-        <Routes>
+          <WalletModal isModalOpen={isModalOpen} toggleModal={closeModal}/>
+          </WalletProvider>
+          <Routes>
           <Route path='/'></Route>
         </Routes>
       </BrowserRouter>
