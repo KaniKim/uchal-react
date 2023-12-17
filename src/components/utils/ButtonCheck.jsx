@@ -7,5 +7,5 @@ ButtonCheck.propTypes = {
 };
 
 export default function ButtonCheck({ children, acting, width }) {
-    return <button onClick={acting} className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${width}`}> {children} </button>
+    return <button onClick={() => {acting()}} className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${width}`}> {children} </button>
 }
