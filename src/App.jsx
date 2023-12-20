@@ -1,7 +1,9 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Nav from './components/layouts/Navigation'
 import { useCallback, useState } from 'react';
 import WalletModal from './components/composition/Wallet';
+import CarouselGame from './components/layouts/Carousel';
+import Form from './components/layouts/Form';
 
 function App() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -17,14 +19,13 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter>
           <Nav openModal={openModal}></Nav>
           <WalletModal isModalOpen={isModalOpen} toggleModal={closeModal}/>
           <Routes>
-          <Route path='/'></Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+            <Route path='/' element={ CarouselGame }></Route>
+            <Route path="/survey" element={ <Form/> }></Route>
+          </Routes>
+      </div>
   )
 }
 

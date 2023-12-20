@@ -3,30 +3,21 @@ import BaseModal from "../utils/BaseModal";
 import ButtonCheck from "../utils/ButtonCheck";
 import { ConnectType, WalletStatus, useWallet } from "@xpla/wallet-provider";
 import Web3 from "web3";
+import { useState } from "react";
 
 WalletModal.propTypes = {
     children: PropTypes.object.isRequired,
     isModalOpen: PropTypes.bool.isRequired,
     toggleModal: PropTypes.func.isRequired
-};
-const accounts =  await window.ethereum.request({ method: 'eth_accounts' });
+}
 
 export default function WalletModal ({isModalOpen, toggleModal}) {
-    const oasysId = 248;
-    async function disconnectOasys() {
-        await window.ethereum.request({
-            method: "wallet_requestPermissions",
-            params: [
-              {
-                eth_accounts: {}
-              }
-            ]
-          });
-    }
+  const [ethereumAccount, setEthereumAccount] = useState(null);
 
+    const oasysId = 248;
 
     async function checkOasys() {
-        if (window.ethereum.networkVersion !== oasysId) {
+        if (window.ethereum.networkVersion !== oasysId.toString()) {
             try {
                 await window.ethereum.request({
                     method: 'wallet_switchEthereumChain',
@@ -48,6 +39,14 @@ export default function WalletModal ({isModalOpen, toggleModal}) {
                   });
             }
         }
+    } else if(window.ethereum.networkVersion === oasysId.toString()) {
+      
+      await window.ethereum.request({
+        method: 'eth_requestAccounts',
+      })
+      .then((accounts) => {
+        setEthereumAccount(accounts[0]);
+      });
     }
     }
 
@@ -75,16 +74,15 @@ export default function WalletModal ({isModalOpen, toggleModal}) {
             Disconnect XPLA&nbsp;<img width={40} src="./src/assets/xpla.png"></img></button>
       )}
             <div className="w-[100%] my-[1%] border-[1px] border-blue"></div>
-        {!window.ethereum.isConnected() && (
+        {!ethereumAccount && (
                 <ButtonCheck width="w-full flex flex-row justify-center text-3xl" acting={checkOasys}>
                     <img width={34} src="./src/assets/oasys.png"></img>&nbsp;OASYS
                 </ButtonCheck>
                 )
             }
-        {
-           window.ethereum.isConnected() && (
-                <ButtonCheck width="w-full flex flex-row justify-center text-3xl" acting={disconnectOasys}>
-                   Disconnect OASYS &nbsp; <img width={34} src="./src/assets/oasys.png"></img>
+        { ethereumAccount && (
+                <ButtonCheck width="w-full flex flex-row justify-center text-3xl">
+                  OASYS is Connected
                 </ButtonCheck>
                 )
         }

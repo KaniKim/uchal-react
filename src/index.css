@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swiper {
+    margin-top: 10%;
+}
+
+.swiper-wrapper {
+    z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .swiper {
+      width: 400px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .swiper {
+      width: 768px;
+    }
+  }
