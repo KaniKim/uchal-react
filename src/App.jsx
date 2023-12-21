@@ -5,6 +5,7 @@ import WalletModal from "./components/composition/Wallet";
 import CarouselGame from "./components/layouts/Carousel";
 import Form from "./components/layouts/Form";
 import MyPageModal from "./components/composition/MyPage";
+import Swap from "./components/layouts/Swap";
 
 function App() {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -35,6 +36,7 @@ function App() {
       <Routes>
         <Route path='/' element={ <CarouselGame/> }></Route>
         <Route path="/survey" element={ <Form/> }></Route>
+        <Route path="/swap" element={ <Swap/>}></Route>
       </Routes>
     </div>
   );

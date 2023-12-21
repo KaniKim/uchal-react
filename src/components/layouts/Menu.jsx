@@ -13,7 +13,7 @@ export default function Menu({openModal, openMyPage}) {
       <ul className="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-5 md:mt-0">
         <li className="text-gray-100 hover:text-indigo-400 font-bold"><Link to={"/"}>Home</Link></li>
         <li> 
-          <ButtonCheck width="md:flex" acting={openModal}>Swap</ButtonCheck></li>
+          <ButtonCheck width="md:flex"><Link to={"/swap"}>Swap</Link></ButtonCheck></li>
         <li>
           <ButtonCheck width="md:flex" acting={openModal}>Connect Wallet</ButtonCheck>
         </li>
