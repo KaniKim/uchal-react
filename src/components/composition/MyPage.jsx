@@ -11,7 +11,7 @@ export default function MyPageModal ({ toggleModal }) {
     <BaseModal toggleModal={toggleModal}>
       <div className="flex flex-col justify-center items-center">
         <p className="text-3xl font-bold">마이페이지</p>
-        <img width={300} src="./src/assets/person.png"></img>
+        <img width={200} src="./src/assets/person.png"></img>
         <p className="text-3xl font-bold">닉네임</p>
       </div>
     </BaseModal>

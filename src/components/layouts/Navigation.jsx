@@ -16,7 +16,7 @@ function Nav({openModal, openMyPage}) {
             
       <div className="w-full
                             
-                         bg-blue-300
+                         bg-black
                             px-6
                             h-2/6
                             py-8
