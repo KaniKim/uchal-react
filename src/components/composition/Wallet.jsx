@@ -11,7 +11,7 @@ WalletModal.propTypes = {
     toggleModal: PropTypes.func.isRequired
 }
 
-export default function WalletModal ({isModalOpen, toggleModal}) {
+export default function WalletModal ({ toggleModal}) {
   const [ethereumAccount, setEthereumAccount] = useState(null);
 
     const oasysId = 248;
@@ -57,7 +57,7 @@ export default function WalletModal ({isModalOpen, toggleModal}) {
       } = useWallet();
       console.log(window.ethereum.isConnected())
     return (
-        <BaseModal isModalOpen={isModalOpen} toggleModal={toggleModal}>
+        <BaseModal toggleModal={toggleModal}>
             {status === WalletStatus.WALLET_NOT_CONNECTED && (
                 <>
                     <button

@@ -4,11 +4,13 @@ import Menu from "./Menu";
 import { useState } from "react";
 
 Nav.propTypes = {
+    openMyPage: PropTypes.func.isRequired,
     openModal: PropTypes.func.isRequired,
 };
 
-function Nav({openModal}) {
+function Nav({openModal, openMyPage}) {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
+
     return ( 
         <div>
             
@@ -49,11 +51,11 @@ function Nav({openModal}) {
                 </button>
                 </div>
                 <div className="hidden md:block">
-                    <Menu openModal={openModal}/>
+                    <Menu openModal={openModal} openMyPage={openMyPage}/>
                 </div>
                 
                 <div className="md:hidden">
-                    {showMobileMenu && <Menu openModal={openModal}/>}
+                    {showMobileMenu && <Menu openModal={openModal} openMyPage={openMyPage}/>}
                 </div>
             </div>    
                 

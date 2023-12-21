@@ -4,10 +4,12 @@ import { useCallback, useState } from 'react';
 import WalletModal from './components/composition/Wallet';
 import CarouselGame from './components/layouts/Carousel';
 import Form from './components/layouts/Form';
+import MyPageModal from './components/composition/MyPage';
 
 function App() {
   const [isModalOpen, setModalOpen] = useState(false);
-  
+  const [isMyPageOpen, setMyPageOpen] = useState(false);
+
   const openModal = useCallback(() => {
     setModalOpen(true);
   }, []);
@@ -16,13 +18,22 @@ function App() {
     setModalOpen(false);
   }, []);
 
+  const openMyPage = useCallback(() => {
+    setMyPageOpen(true);
+  }, []);
+
+  const closeMyPage = useCallback(() => {
+    setMyPageOpen(false);
+  }, []);
+
 
   return (
     <div>
-          <Nav openModal={openModal}></Nav>
-          <WalletModal isModalOpen={isModalOpen} toggleModal={closeModal}/>
+          <Nav openModal={openModal} openMyPage={openMyPage}></Nav>
+          { (isModalOpen && !isMyPageOpen) && (<WalletModal toggleModal={closeModal}/>)}
+          { (isMyPageOpen && !isModalOpen) && (<MyPageModal toggleModal={closeMyPage}/>)}
           <Routes>
-            <Route path='/' element={ CarouselGame }></Route>
+            <Route path='/' element={ <CarouselGame/> }></Route>
             <Route path="/survey" element={ <Form/> }></Route>
           </Routes>
       </div>

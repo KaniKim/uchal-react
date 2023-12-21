@@ -7,8 +7,8 @@ BaseModal.propTypes = {
     toggleModal: PropTypes.func.isRequired
 };
 
-export default function BaseModal ({isModalOpen, toggleModal, children}) {
-    return isModalOpen ? (
+export default function BaseModal ({ toggleModal, children}) {
+    return (
         <div 
         style={{"z-index" : "999"}}
         className="absolute w-full bg-black bg-opacity-30 h-screen top-0 left-0 flex justify-center">
@@ -20,5 +20,5 @@ export default function BaseModal ({isModalOpen, toggleModal, children}) {
                 <ButtonCheck width="w-full" acting={toggleModal}>Close</ButtonCheck>
             </div>
         </div>
-    ) : null;
+    )
 }
