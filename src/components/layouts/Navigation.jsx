@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Menu from "./Menu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useWallet } from "@xpla/wallet-provider";
 
 Nav.propTypes = {
   openMyPage: PropTypes.func.isRequired,
@@ -10,10 +11,30 @@ Nav.propTypes = {
 
 function Nav({openModal, openMyPage}) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [ethAccount, setEthAccount] = useState("");
+  const [xplaAccount, setXplaAccount] = useState("");
+  const {wallets} = useWallet();
+
+  function checkAccount () {
+    if(window.ethereum.networkVersion === "248") {
+      
+      window.ethereum.request({
+        method: "eth_requestAccounts",
+      })
+        .then((accounts) => {
+          setEthAccount(accounts[0]);
+        });
+    }
+    console.log(wallets);
+    if(wallets.length !== 0) {
+      setXplaAccount(wallets[0].xplaAddress);
+    }
+  }
+
+  useEffect(() => {checkAccount();});
 
   return ( 
     <div>
-            
       <div className="w-full
                             
                          bg-black
@@ -21,7 +42,7 @@ function Nav({openModal, openMyPage}) {
                             h-2/6
                             py-8
                             md:flex md:justify-between md:items-center">
-                                
+                      
         <div className="flex items-center justify-between">
           <Link 
             className="text-xl
@@ -50,6 +71,8 @@ function Nav({openModal, openMyPage}) {
             </svg>
           </button>
         </div>
+        <p className="text-white font-bold text-sm"> {xplaAccount && ("xpla address : " + xplaAccount)}</p>
+        <p className="text-white font-bold text-sm"> {ethAccount && ("oasys address : " + ethAccount)}</p>
         <div className="hidden md:block">
           <Menu openModal={openModal} openMyPage={openMyPage}/>
         </div>

@@ -55,7 +55,7 @@ export default function WalletModal ({ toggleModal}) {
     connect,
     disconnect,
   } = useWallet();
-  console.log(window.ethereum.isConnected());
+
   return (
     <BaseModal toggleModal={toggleModal}>
       {status === WalletStatus.WALLET_NOT_CONNECTED && (

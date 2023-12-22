@@ -8,6 +8,7 @@ Menu.propTypes = {
 };
 
 export default function Menu({openModal, openMyPage}) {
+  
   return (
     <div>
       <ul className="flex-col mt-8 space-y-4 md:flex md:space-y-0 md:flex-row md:items-center md:space-x-5 md:mt-0">
