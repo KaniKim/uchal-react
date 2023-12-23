@@ -7,7 +7,7 @@ export default defineConfig({
     // Whether to polyfill `node:` protocol imports.
     protocolImports: true,
   }),],
-  base: "/uchal-react/",
+  //base: "/uchal-react/",
   build: {
     outDir: "dist",
   },

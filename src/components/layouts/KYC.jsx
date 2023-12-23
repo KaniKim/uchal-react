@@ -78,10 +78,13 @@ export default function KycForm() {
                   </p>
                   <br />
                 </div>
-                <div className="justify-center flex px-6 pt-4 pb-2">
+                <div className="justify-center flex px-6 pt-4 pb-2 flex-col">
                   <ButtonImage setData={setImgFace}>사진 찍기</ButtonImage>
                 </div>
-                <p>가이드라인에 얼굴을 맞춰서 촬영을...</p>
+                <br/>
+                <div className="justify-center flex px-6 pt-4 pb-2 flex-col">
+                  <p>가이드라인에 얼굴을 맞춰서 촬영을해주세요</p>
+                </div>
                 <div className="justify-center flex px-6 pt-4 pb-2">
                   { (imgFace === true && kycId === "3") && (<Link to={"/kyc/4"}> <ButtonCheck>제출하기</ButtonCheck> </Link>)}
                 </div>
