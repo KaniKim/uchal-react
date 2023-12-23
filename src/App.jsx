@@ -38,7 +38,7 @@ function App() {
         <Route path='/' element={ <CardGame/> }></Route>
         <Route path="/survey" element={ <Form/> }></Route>
         <Route path="/swap" element={ <Swap/>}></Route>
-        <Route path="/kyc" element={<KycForm/>}></Route>
+        <Route path="/kyc/:kycId" element={<KycForm/>}></Route>
       </Routes>
     </div>
   );

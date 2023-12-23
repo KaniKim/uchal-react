@@ -16,7 +16,7 @@ export default function Swap() {
                 <div className="font-bold text-3xl mb-2">스왑하기</div>
                 <p>kyc를 인증해야 합니다</p>
                 <div className="px-6 py-4 flex-col justify-center flex items-center">
-                  <Link to={"/kyc"}><ButtonCheck>kyc 인증하기</ButtonCheck></Link>
+                  <Link to={"/kyc/1"}><ButtonCheck>kyc 인증하기</ButtonCheck></Link>
                 </div>
                 <div className="w-[100%] my-[1%] border-[1px] border-blue"></div>
                 <div className="px-6 py-4 flex-col justify-center flex items-center text-purple-500">

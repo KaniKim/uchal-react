@@ -21,7 +21,7 @@ export default function MyPageModal ({ toggleModal }) {
         {!context.kyc && (
           <div>
             <p>Kyc를 인증해야 합니다</p>
-            <Link to={"/kyc"}><ButtonCheck>Kyc 인증하기</ButtonCheck></Link>
+            <Link to={"/kyc/1"}><ButtonCheck>Kyc 인증하기</ButtonCheck></Link>
           </div>
         )}
         <p className="text-3xl font-bold">닉네임</p>
