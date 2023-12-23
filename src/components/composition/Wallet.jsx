@@ -58,6 +58,19 @@ export default function WalletModal ({ toggleModal}) {
 
   return (
     <BaseModal toggleModal={toggleModal}>
+      {!ethereumAccount && (
+        <ButtonCheck width="w-full flex flex-row justify-center text-3xl" acting={checkOasys}>
+          <img width={34} src="./oasys.png"></img>&nbsp;OASYS
+        </ButtonCheck>
+      )
+      }
+      { ethereumAccount && (
+        <ButtonCheck width="w-full flex flex-row justify-center text-3xl">
+                  OASYS is Connected
+        </ButtonCheck>
+      )
+      }
+      <div className="w-[100%] my-[1%] border-[1px] border-blue"></div>
       {status === WalletStatus.WALLET_NOT_CONNECTED && (
         <>
           <button
@@ -73,19 +86,6 @@ export default function WalletModal ({ toggleModal}) {
         <button className="w-full flex flex-row justify-center text-3xl justify bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => disconnect()}>
             Disconnect XPLA&nbsp;<img width={40} src="./xpla.png"></img></button>
       )}
-      <div className="w-[100%] my-[1%] border-[1px] border-blue"></div>
-      {!ethereumAccount && (
-        <ButtonCheck width="w-full flex flex-row justify-center text-3xl" acting={checkOasys}>
-          <img width={34} src="./oasys.png"></img>&nbsp;OASYS
-        </ButtonCheck>
-      )
-      }
-      { ethereumAccount && (
-        <ButtonCheck width="w-full flex flex-row justify-center text-3xl">
-                  OASYS is Connected
-        </ButtonCheck>
-      )
-      }
     </BaseModal>
   );
     

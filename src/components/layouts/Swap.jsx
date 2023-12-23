@@ -28,7 +28,7 @@ export default function Swap() {
               <br/>
               <p>kyc를 인증해야 합니다</p>
               <br/>
-              <ButtonCheck className="w-full"><Link to={"/kyc/1"}>kyc 인증하기</Link></ButtonCheck>
+              <button className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-2/3"}><Link to={"/kyc/1"}>kyc 인증하기</Link></button>
             </div>
           )}
           <div className="px-6 py-4 flex-col justify-center flex items-center">
