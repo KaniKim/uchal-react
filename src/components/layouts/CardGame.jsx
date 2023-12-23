@@ -6,7 +6,7 @@ export default function CardGame() {
     <div className="justify-center flex pt-10">
       <div className=" w-2/5 rounded overflow-hidden shadow-lg">
         <div className="px-6 py-4">
-          <img src="./src/assets/gamevil.jpg"></img>
+          <img src="./gamevil.jpg"></img>
           <div className="w-[100%] my-[1%] border-[1px] border-blue"></div>
           <p className="font-bold text-3xl">게임빌</p>
           <br/>
@@ -20,7 +20,7 @@ export default function CardGame() {
       </div>
       <div className=" w-2/5 rounded overflow-hidden shadow-lg">
         <div className="px-6 py-4">
-          <img src="./src/assets/fishing.png"></img>
+          <img src="./fishing.png"></img>
           <div className="w-[100%] my-[1%] border-[1px] border-blue"></div>
           <p className="font-bold text-3xl">fishing</p>
           <br/>
@@ -34,7 +34,7 @@ export default function CardGame() {
       </div>
       <div className=" w-2/5 rounded overflow-hidden shadow-lg">
         <div className="px-6 py-4">
-          <img src="./src/assets/summer.jpg"></img>
+          <img src="./summer.jpg"></img>
           <div className="w-[100%] my-[1%] border-[1px] border-blue"></div>
           <p className="font-bold text-3xl">서머너즈 워</p>
           <br/>

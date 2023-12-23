@@ -17,7 +17,7 @@ export default function MyPageModal ({ toggleModal }) {
     <BaseModal toggleModal={toggleModal}>
       <div className="flex flex-col justify-center items-center">
         <p className="text-3xl font-bold">마이페이지</p>
-        <img width={200} src="./src/assets/person.png"></img>
+        <img width={200} src="./person.png"></img>
         {!context.kyc && (
           <div>
             <p>Kyc를 인증해야 합니다</p>

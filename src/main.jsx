@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 getChainOptions().then((getChainOptions) => {
   
   root.render(
-    <BrowserRouter>
+    <BrowserRouter basename={"https://kanikim.github.io/uchal-react/"}>
       <kycContext.Provider value={{ kyc: false}}>
         <WalletProvider {...getChainOptions}>
           <App />
