@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import BaseModal from "../utils/BaseModal";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 MyPageModal.propTypes = {
   isMyPageOpen: PropTypes.bool.isRequired,
@@ -8,7 +8,7 @@ MyPageModal.propTypes = {
 };
 
 export default function MyPageModal ({ toggleModal }) {
-
+  const navigate = useNavigate();
   return (
     <BaseModal toggleModal={toggleModal}>
       <div className="flex flex-col justify-center items-center">
@@ -18,7 +18,7 @@ export default function MyPageModal ({ toggleModal }) {
         <div className="px-3 py-4 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-2 shadow outline-none focus:outline-none focus:ring w-full"> 보유량 : 40000 </div>
         <br/>
         <div className="w-full">
-          <button className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"}><Link to={"/swap"}>Swap 하기</Link></button>
+          <button onClick={() => {navigate("/kyc/1");}} className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"}>스왑하기</button>
         </div>
       </div>
     </BaseModal>

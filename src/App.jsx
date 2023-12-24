@@ -34,6 +34,8 @@ function App() {
       <Nav openModal={openModal} openMyPage={openMyPage}></Nav>
       { (isModalOpen && !isMyPageOpen) && (<WalletModal toggleModal={closeModal}/>)}
       { (isMyPageOpen && !isModalOpen) && (<MyPageModal toggleModal={closeMyPage}/>)}
+      <br/>
+      <p className="font-bold text-3xl px-3">게임 간단 설문 완료하고, 토큰 얻어가세요!</p>
       <Routes>
         <Route path='/' element={ <CardGame/> }></Route>
         <Route path="/survey" element={ <Form/> }></Route>

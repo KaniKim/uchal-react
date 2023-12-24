@@ -25,7 +25,7 @@ function Nav({openModal, openMyPage}) {
           setEthAccount(accounts[0]);
         });
     }
-    console.log(wallets);
+
     if(wallets.length !== 0) {
       setXplaAccount(wallets[0].xplaAddress);
     }
