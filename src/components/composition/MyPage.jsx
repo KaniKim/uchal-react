@@ -9,6 +9,12 @@ MyPageModal.propTypes = {
 
 export default function MyPageModal ({ toggleModal }) {
   const navigate = useNavigate();
+
+  function closeNavigate() {
+    navigate("/swap");
+    toggleModal();
+  }
+
   return (
     <BaseModal toggleModal={toggleModal}>
       <div className="flex flex-col justify-center items-center">
@@ -18,7 +24,7 @@ export default function MyPageModal ({ toggleModal }) {
         <div className="px-3 py-4 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-2 shadow outline-none focus:outline-none focus:ring w-full"> 보유량 : 40000 </div>
         <br/>
         <div className="w-full">
-          <button onClick={() => {navigate("/swap");}} className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"}>스왑하기</button>
+          <button onClick={() => {closeNavigate();}} className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"}>스왑하기</button>
         </div>
       </div>
     </BaseModal>
