@@ -18,7 +18,7 @@ export default function MyPageModal ({ toggleModal }) {
         <div className="px-3 py-4 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-base border-2 shadow outline-none focus:outline-none focus:ring w-full"> 보유량 : 40000 </div>
         <br/>
         <div className="w-full">
-          <button onClick={() => {navigate("/kyc/1");}} className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"}>스왑하기</button>
+          <button onClick={() => {navigate("/swap");}} className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full"}>스왑하기</button>
         </div>
       </div>
     </BaseModal>

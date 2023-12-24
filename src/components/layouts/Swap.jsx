@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ButtonCheck from "../utils/ButtonCheck";
 import { useContext } from "react";
 import { kycContext } from "../store";
 
 export default function Swap() {
   const { kyc } = useContext(kycContext);
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -28,7 +29,7 @@ export default function Swap() {
               <br/>
               <p>kyc를 인증해야 합니다</p>
               <br/>
-              <button className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-2/3"}><Link to={"/kyc/1"}>kyc 인증하기</Link></button>
+              <button onClick={() => {navigate("/kyc/1");}}className={"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-2/3"}>KYC 인증하기</button>
             </div>
           )}
           <div className="px-6 py-4 flex-col justify-center flex items-center">
